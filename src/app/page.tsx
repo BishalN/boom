@@ -1,17 +1,13 @@
-import Link from "next/link";
-
-import { LatestPost } from "@/app/_components/post";
-import { getServerAuthSession } from "@/server/auth";
-import { api, HydrateClient } from "@/trpc/server";
+import { Hero } from "@/components/landing/hero";
+import { Navbar } from "@/components/landing/navbar";
 
 export default async function Home() {
-  void api.post.getLatest.prefetch();
-
   return (
-    <HydrateClient>
+    <div>
+      <Navbar />
       <main>
-        <h1>Hello world</h1>
+        <Hero />
       </main>
-    </HydrateClient>
+    </div>
   );
 }
